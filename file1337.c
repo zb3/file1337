@@ -147,7 +147,8 @@ void parse_args(int argc, char **argv)
  struct driver *drivers = *command == 'u' ? upload_drivers : download_drivers;
  
  // find driver
- for(struct driver *drv = drivers; drv->name; drv++)
+ struct driver *drv;
+ for(drv = drivers; drv->name; drv++)
  {
   if (!strcmp(wanted_driver, drv->name))
   {
@@ -487,5 +488,5 @@ int main(int argc, char **argv)
 SELF_COMPILE
 
 #/*
-./$F $@
+./$TARGET $@
 #*/
